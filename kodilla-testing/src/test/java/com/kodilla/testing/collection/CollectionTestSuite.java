@@ -20,6 +20,7 @@ public class CollectionTestSuite {
         //When
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         oddNumbersExterminator.exterminate(testArray);
+        System.out.println("Testing size of empty list: " + oddNumbersExterminator.getSize());
         //Then
         Assert.assertEquals(oddNumbersExterminator.getSize(),0);
     }
@@ -33,6 +34,7 @@ public class CollectionTestSuite {
         //When
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         oddNumbersExterminator.exterminate(testArray);
+        System.out.println("Testing size of list containing 20 next natural numbers without odd numbers: " + oddNumbersExterminator.getSize());
         //Then
         Assert.assertEquals(oddNumbersExterminator.getSize(),10 );
 
