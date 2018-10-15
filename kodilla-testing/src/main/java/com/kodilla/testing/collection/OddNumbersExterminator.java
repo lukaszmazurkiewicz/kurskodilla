@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 public class OddNumbersExterminator {
 
-    ArrayList<Integer> evenNumbers = new ArrayList<>();
-
     public void exterminate(ArrayList<Integer> numbers) {
+
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
 
         for (int n = 0; n < numbers.size(); n++) {
             if ( numbers.get(n) % 2 == 0) {
-                evenNumbers.add(n);
+                evenNumbers.add(numbers.get(n));
             }
         }
-    }
-
-    public int getSize() {
-        return evenNumbers.size();
     }
 }
