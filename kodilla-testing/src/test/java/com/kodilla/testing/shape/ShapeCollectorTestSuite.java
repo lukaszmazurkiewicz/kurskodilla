@@ -19,6 +19,7 @@ public class ShapeCollectorTestSuite {
 
     @Before
     public void beforeEveryTest() {
+
         testCounter++;
         System.out.println("Test nr " + testCounter);
     }
@@ -74,10 +75,10 @@ public class ShapeCollectorTestSuite {
         //Given
         Shape shape = new Square(5);
         //When
-        long result = (long) shape.getField();
+        double result = shape.getField();
         System.out.println("Test poprawności pola figury");
         //Then
-        Assert.assertEquals(25, result);
+        Assert.assertEquals(25, result, 0.0);
     }
 
     @Test
@@ -90,5 +91,4 @@ public class ShapeCollectorTestSuite {
         //
         Assert.assertEquals("Circle", name);
     }
-
 }
