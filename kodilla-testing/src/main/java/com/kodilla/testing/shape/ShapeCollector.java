@@ -11,13 +11,12 @@ public class ShapeCollector {
     }
 
     public void removeFigure(Shape shape) {
-
         shapes.remove(shape);
     }
 
-    public void getFigure(int n) {
+    public Shape getFigure(int n) {
 
-        shapes.get(n);
+        return shapes.get(n);
     }
 
     public void showFigures() {
@@ -25,5 +24,9 @@ public class ShapeCollector {
         for (int i = 0; i < shapes.size(); i++) {
             System.out.println(shapes.get(i));
         }
+    }
+
+    public int getSize() {
+        return shapes.size();
     }
 }
