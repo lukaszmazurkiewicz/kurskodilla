@@ -2,11 +2,22 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
 
-    public void getShapeName() {
-        System.out.println("This is Square.");
+    double side;
+
+    public Square(double side) {
+
+        this.side = side;
+
     }
 
-    public void getField(double field){
-        System.out.println("Field of the figure: " + field);
+    public String getShapeName() {
+
+        return "Square";
+    }
+
+    public double getField(){
+
+        return Math.pow(side,2);
+
     }
 }
