@@ -3,6 +3,7 @@ package com.kodilla.testing.collection;
 import org.junit.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionTestSuite {
     @Before
@@ -19,24 +20,25 @@ public class CollectionTestSuite {
         ArrayList<Integer> testArray = new ArrayList<>();
         //When
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        oddNumbersExterminator.exterminate(testArray);
-        System.out.println("Testing size of empty list: " + oddNumbersExterminator.getSize());
+        List<Integer> evenOnly = oddNumbersExterminator.exterminate(testArray);
         //Then
-        Assert.assertEquals(oddNumbersExterminator.getSize(),0);
+        Assert.assertEquals(0, evenOnly.size());
     }
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
         ArrayList<Integer> testArray = new ArrayList<>();
         for (int i = 0; i<20; i++) {
-            testArray.add(i+1);
+            testArray.add(i);
         }
         //When
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        oddNumbersExterminator.exterminate(testArray);
-        System.out.println("Testing size of list containing 20 next natural numbers without odd numbers: " + oddNumbersExterminator.getSize());
+        List<Integer> evenOnly = oddNumbersExterminator.exterminate(testArray);
         //Then
-        Assert.assertEquals(oddNumbersExterminator.getSize(),10 );
+        for (int n = 0; n < evenOnly.size(); n++) {
 
+            Assert.assertEquals(0, evenOnly.get(n) % 2);
+
+        }
     }
 }
