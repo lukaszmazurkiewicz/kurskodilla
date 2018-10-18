@@ -49,6 +49,7 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfPostsPerUser;
+        System.out.println(calculateStatistics.showStatistics());
         //Given
         Assert.assertEquals(0, result);
     }
@@ -67,12 +68,13 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfPostsPerUser;
+        System.out.println(calculateStatistics.showStatistics());
         //Given
         Assert.assertEquals(500, result);
     }
 
     @Test
-    public void zeroCommentsTest() {
+    public void zeroCommentTest() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         int commentCounter = 0;
@@ -85,12 +87,13 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfCommentsPerUser;
+        System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(0, result);
     }
 
     @Test
-    public void thousandCommentsTest() {
+    public void thousandCommentTest() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         int commentCounter = 1000;
@@ -103,6 +106,7 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfCommentsPerUser;
+        System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(500, result);
     }
@@ -122,6 +126,7 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfCommentsPerPost;
+        System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(2, result);
     }
@@ -132,8 +137,8 @@ public class CalculateStatisticsTestSuite {
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
         users.add("Jolka");
-        int commentCounter = 500;
-        int postCounter = 1000;
+        int commentCounter = 5000;
+        int postCounter = 10000;
         when(statisticsMock.usersNames()).thenReturn(users);
         when(statisticsMock.commentsCount()).thenReturn(commentCounter);
         when(statisticsMock.postsCount()).thenReturn(postCounter);
@@ -141,6 +146,7 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfCommentsPerPost;
+        System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(0.5, result, 1);
     }
@@ -159,6 +165,7 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfCommentsPerPost;
+        System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(5, result);
     }
@@ -176,6 +183,7 @@ public class CalculateStatisticsTestSuite {
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
         int result = calculateStatistics.averageOfPostsPerUser;
+        System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(1000, result);
     }

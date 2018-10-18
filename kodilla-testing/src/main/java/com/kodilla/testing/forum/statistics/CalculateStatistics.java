@@ -39,6 +39,6 @@ public class CalculateStatistics {
     }
 
     public String showStatistics() {
-        return "Liczba użytkowników to: " + numberOfUsers + ". Postów napisano: " + numberOfPosts + ". Pod nimi zostawiono: " + numberOfComments +" komentarzy. Co daję nam średnią: " + averageOfPostsPerUser + "postów na użytkownika, " + averageOfCommentsPerUser + " komentarzy na użytkownika oraz średnio " + averageOfCommentsPerPost + "komentarzy na post.";
+        return "Liczba użytkowników to: " + numberOfUsers + ". Postów napisano: " + numberOfPosts + ".\nPod nimi zostawiono: " + numberOfComments +" komentarzy. Co daję nam średnią: " + averageOfPostsPerUser + " postów na użytkownika, \n" + averageOfCommentsPerUser + " komentarzy na użytkownika oraz średnio " + averageOfCommentsPerPost + " komentarzy na post.";
     }
 }
