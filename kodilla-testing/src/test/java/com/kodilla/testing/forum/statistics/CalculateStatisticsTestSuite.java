@@ -47,12 +47,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(0, result);
@@ -74,12 +74,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(1000, result);
@@ -101,12 +101,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(0, result);
@@ -128,12 +128,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(0, result);
@@ -157,12 +157,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(500, result);
@@ -186,12 +186,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(10000, result);
@@ -215,12 +215,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(1000, result);
@@ -242,12 +242,12 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.numberOfPosts;
-        int result2 = calculateStatistics.numberOfComments;
-        int result3 = calculateStatistics.numberOfUsers;
-        int result4 = calculateStatistics.averageOfPostsPerUser;
-        int result5 = calculateStatistics.averageOfCommentsPerUser;
-        int result6 = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.getNumberOfPosts();
+        int result2 = calculateStatistics.getNumberOfComments();
+        int result3 = calculateStatistics.getNumberOfUsers();
+        int result4 = calculateStatistics.getAverageOfPostsPerUser();
+        int result5 = calculateStatistics.getAverageOfCommentsPerUser();
+        int result6 = calculateStatistics.getAverageOfCommentsPerPost();
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(1000, result);

@@ -5,15 +5,41 @@ public class CalculateStatistics {
     Statistics statistics;
 
     public CalculateStatistics(Statistics statistics) {
+
         this.statistics = statistics;
+
     }
 
-    int numberOfUsers;
-    int numberOfPosts;
-    int numberOfComments;
-    int averageOfPostsPerUser;
-    int averageOfCommentsPerUser;
-    int averageOfCommentsPerPost;
+    private int numberOfUsers;
+    private int numberOfPosts;
+    private int numberOfComments;
+    private int averageOfPostsPerUser;
+    private int averageOfCommentsPerUser;
+    private int averageOfCommentsPerPost;
+
+    public int getNumberOfUsers() {
+        return numberOfUsers;
+    }
+
+    public int getNumberOfPosts() {
+        return numberOfPosts;
+    }
+
+    public int getNumberOfComments() {
+        return numberOfComments;
+    }
+
+    public int getAverageOfPostsPerUser() {
+        return averageOfPostsPerUser;
+    }
+
+    public int getAverageOfCommentsPerUser() {
+        return averageOfCommentsPerUser;
+    }
+
+    public int getAverageOfCommentsPerPost() {
+        return averageOfCommentsPerPost;
+    }
 
     public void calculateAdvStatistics(Statistics statistics) {
 
