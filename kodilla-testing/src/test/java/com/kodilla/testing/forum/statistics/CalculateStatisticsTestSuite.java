@@ -3,6 +3,7 @@ package com.kodilla.testing.forum.statistics;
 import org.junit.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
@@ -40,18 +41,26 @@ public class CalculateStatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         int postCounter = 0;
-        List<String> users = new ArrayList<>();
-        users.add("Jola");
-        users.add("Ola");
+        List<String> users = Arrays.asList("Jola","Ola");
         when(statisticsMock.postsCount()).thenReturn(postCounter);
         when(statisticsMock.usersNames()).thenReturn(users);
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfPostsPerUser;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
-        //Given
+        //Then
         Assert.assertEquals(0, result);
+        Assert.assertEquals(0, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(0, result4);
+        Assert.assertEquals(0, result5);
+        Assert.assertEquals(0, result6);
     }
 
     @Test
@@ -59,18 +68,26 @@ public class CalculateStatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         int postCounter = 1000;
-        List<String> users = new ArrayList<>();
-        users.add("Jola");
-        users.add("Ola");
+        List<String> users = Arrays.asList("Jola","Ola");
         when(statisticsMock.postsCount()).thenReturn(postCounter);
         when(statisticsMock.usersNames()).thenReturn(users);
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfPostsPerUser;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
-        //Given
-        Assert.assertEquals(500, result);
+        //Then
+        Assert.assertEquals(1000, result);
+        Assert.assertEquals(0, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(500, result4);
+        Assert.assertEquals(0, result5);
+        Assert.assertEquals(0, result6);
     }
 
     @Test
@@ -78,18 +95,26 @@ public class CalculateStatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         int commentCounter = 0;
-        List<String> users = new ArrayList<>();
-        users.add("Jola");
-        users.add("Ola");
+        List<String> users = Arrays.asList("Jola","Ola");
         when(statisticsMock.commentsCount()).thenReturn(commentCounter);
         when(statisticsMock.usersNames()).thenReturn(users);
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfCommentsPerUser;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(0, result);
+        Assert.assertEquals(0, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(0, result4);
+        Assert.assertEquals(0, result5);
+        Assert.assertEquals(0, result6);
     }
 
     @Test
@@ -97,26 +122,33 @@ public class CalculateStatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         int commentCounter = 1000;
-        List<String> users = new ArrayList<>();
-        users.add("Jolka");
-        users.add("Olka");
+        List<String> users = Arrays.asList("Jola","Ola");
         when(statisticsMock.commentsCount()).thenReturn(commentCounter);
         when(statisticsMock.usersNames()).thenReturn(users);
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfCommentsPerUser;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
         //Then
-        Assert.assertEquals(500, result);
+        Assert.assertEquals(0, result);
+        Assert.assertEquals(1000, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(0, result4);
+        Assert.assertEquals(500, result5);
+        Assert.assertEquals(0, result6);
     }
 
     @Test
     public void moreCommentsThanPostsTest() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("Jolka");
+        List<String> users = Arrays.asList("Jola", "Johny Bravo");
         int commentCounter = 1000;
         int postCounter = 500;
         when(statisticsMock.usersNames()).thenReturn(users);
@@ -125,18 +157,27 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
         //Then
-        Assert.assertEquals(2, result);
+        Assert.assertEquals(500, result);
+        Assert.assertEquals(1000, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(250, result4);
+        Assert.assertEquals(500, result5);
+        Assert.assertEquals(2, result6);
     }
 
     @Test
     public void morePostsThanCommentsTest() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("Jolka");
+        List<String> users = Arrays.asList("Jola", "Jarek");
         int commentCounter = 5000;
         int postCounter = 10000;
         when(statisticsMock.usersNames()).thenReturn(users);
@@ -145,10 +186,20 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
         //Then
-        Assert.assertEquals(0.5, result, 1);
+        Assert.assertEquals(10000, result);
+        Assert.assertEquals(5000, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(5000, result4);
+        Assert.assertEquals(2500, result5);
+        Assert.assertEquals(0, result6, 1);
     }
 
     @Test
@@ -164,29 +215,46 @@ public class CalculateStatisticsTestSuite {
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfCommentsPerPost;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
         //Then
-        Assert.assertEquals(5, result);
+        Assert.assertEquals(1000, result);
+        Assert.assertEquals(5000, result2);
+        Assert.assertEquals(0, result3);
+        Assert.assertEquals(0, result4);
+        Assert.assertEquals(0, result5);
+        Assert.assertEquals(5, result6);
     }
 
     @Test
     public void hundredUserTest() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("Ziemowit");
+        List<String> users = Arrays.asList("Ziemowit", "Samuel");
         int postCounter = 1000;
         when(statisticsMock.usersNames()).thenReturn(users);
         when(statisticsMock.postsCount()).thenReturn(postCounter);
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
-        int result = calculateStatistics.averageOfPostsPerUser;
+        int result = calculateStatistics.numberOfPosts;
+        int result2 = calculateStatistics.numberOfComments;
+        int result3 = calculateStatistics.numberOfUsers;
+        int result4 = calculateStatistics.averageOfPostsPerUser;
+        int result5 = calculateStatistics.averageOfCommentsPerUser;
+        int result6 = calculateStatistics.averageOfCommentsPerPost;
         System.out.println(calculateStatistics.showStatistics());
         //Then
         Assert.assertEquals(1000, result);
+        Assert.assertEquals(0, result2);
+        Assert.assertEquals(2, result3);
+        Assert.assertEquals(500, result4);
+        Assert.assertEquals(0, result5);
+        Assert.assertEquals(0, result6);
     }
-
-
 }
