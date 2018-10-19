@@ -7,6 +7,7 @@ public class BookLibrary {
     LibraryDatabase libraryDatabase;
 
     public BookLibrary(LibraryDatabase libraryDatabase) {
+
         this.libraryDatabase = libraryDatabase;
     }
 
@@ -21,7 +22,9 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> borrowedBooks = new ArrayList<>();
+
+        List<Book> borrowedBooks = libraryDatabase.listBooksInHandsOf(libraryUser);
+
         return  borrowedBooks;
     }
 
