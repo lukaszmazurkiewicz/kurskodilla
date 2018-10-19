@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-10-19T15:23:49" hostname="DESKTOP-NSJVO29" time="0.006">
+  <properties/>
+  <testcase name="testGetField" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testGetShapeName" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testRemoveFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testAddFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <testcase name="testGetFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <system-out><![CDATA[Start Testing: 
+Test nr 1
+Test poprawnoĹ›ci pola figury
+End of test nr 1
+Test nr 2
+Test poprawnosci nazwy figury
+End of test nr 2
+Test nr 3
+Test usuwania figury
+End of test nr 3
+Test nr 4
+Test dodania figury
+End of test nr 4
+Test nr 5
+Test pobierania wybranej figury
+End of test nr 5
+The end of all tests.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
