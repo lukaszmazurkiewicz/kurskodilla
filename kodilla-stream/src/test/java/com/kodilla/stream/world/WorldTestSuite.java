@@ -11,9 +11,8 @@ public class WorldTestSuite {
         //Given
         World world = new World();
         world.continents();
-        BigDecimal result;
         //When
-        result = world.getPeopleQuantity();
+        BigDecimal result = world.getPeopleQuantity();
         //Then
         BigDecimal expected = new BigDecimal("1999999998");
         Assert.assertEquals(expected, result);
