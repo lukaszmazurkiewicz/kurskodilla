@@ -8,7 +8,9 @@ public class ExceptionHandling {
         try {
             secondChallenge.probablyIWillThrowException(2,3);
         } catch (Exception e) {
-            System.out.println("Something went wrong!");
+            System.out.println("Something went wrong! " + e);
+        } finally {
+            System.out.println("I am gonna be here... always.");
         }
     }
 }
