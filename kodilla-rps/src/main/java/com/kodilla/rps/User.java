@@ -16,4 +16,8 @@ public class User {
     public int getScore() {
         return score;
     }
+
+    public int addOnePointToScore() {
+        return score++;
+    }
 }
