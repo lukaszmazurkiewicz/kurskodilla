@@ -20,4 +20,8 @@ public class User {
     public int addOnePointToScore() {
         return score++;
     }
+
+    public int setScore() {
+        return score = 0;
+    }
 }
