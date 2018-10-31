@@ -1,12 +1,18 @@
 package com.kodilla.rps;
 
 public class User {
-    private String name;
-    private int score;
 
-    public User(String name, int score) {
+    private static final int INITIAL_SCORE = 0;
+
+    private String name;
+    private int score = INITIAL_SCORE;
+
+    public User(String name) {
         this.name = name;
-        this.score = score;
+    }
+
+    public void clearScore(){
+        score = INITIAL_SCORE;
     }
 
     public String getName() {
@@ -19,9 +25,5 @@ public class User {
 
     public int addOnePointToScore() {
         return score++;
-    }
-
-    public int setScore() {
-        return score = 0;
     }
 }
