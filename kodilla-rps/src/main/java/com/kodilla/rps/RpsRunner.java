@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RpsRunner {
 
-    private static final Random RADOM = new Random();
+    private static final Random RANDOM = new Random();
     private static boolean end = false;
     private static Scanner input = new Scanner(System.in);
 
@@ -20,7 +20,13 @@ public class RpsRunner {
 
         System.out.println("Witaj " + humanUser.getName() + "! Do ilu wygranych rund chcesz zagrać? ");
 
+        input = new Scanner(System.in);
         GameplayInfo gameplayInfo = new GameplayInfo(input.nextInt());
+
+        while (gameplayInfo.getNumberOfRounds() <= 0) {
+            System.out.println("Wybrałeś niepoprawną wartośc. Wybierz liczbę powyżej 0.");
+            gameplayInfo = new GameplayInfo(input.nextInt());
+        }
 
         System.out.println("Obsługa gry Papier, Nożyce, Kamień! \nWciśnij 1 aby zagrać Kamień\nWciśnij 2 aby zagrać Papier\nWciśnij 3 aby zagrać Nożyce.");
         System.out.println("Wciśnij \"x\" aby zakończyć grę. \nWciśnij \"n\" aby zacząć grę od nowa.");
@@ -30,7 +36,7 @@ public class RpsRunner {
             input = new Scanner(System.in);
 
             Move playerNextMove = Move.of(input.nextLine());
-            Move computerNextMove = Move.of(RADOM.nextInt(3) + 1);
+            Move computerNextMove = Move.of(RANDOM.nextInt(3) + 1);
 
             Gameplay.whoWin(playerNextMove, computerNextMove, humanUser, computerUser);
 
@@ -44,29 +50,38 @@ public class RpsRunner {
 
                     finishGame(computerUser, humanUser);
                 }
-
-            } else if (playerNextMove.equals("x")) {
-
-                end = true;
-
-            } else if (playerNextMove.equals("n")) {
-                humanUser.clearScore();
-                computerUser.clearScore();
-                System.out.println("Zaczynamy grę od nowa!");
             }
         }
     }
 
     private static void finishGame(User winner, User loser) {
+        boolean endOfGame = false;
+
         System.out.println("Wygrał " + winner.getName() + " Wynik gry: " + winner.getScore() + ":" + loser.getScore() + "\nKoniec gry!");
         System.out.println("Teraz możesz zakończyć grę, wciśnij \"x\" lub zacząć od nowa, wciśnij \"n\"");
-        Scanner input3 = new Scanner(System.in);
-        String endGameChoice = input3.nextLine();
-        if (endGameChoice.equals("x")) {
-            end = true;
-        } else if (endGameChoice.equals("n")) {
-            winner.clearScore();
-            loser.clearScore();
+
+        input = new Scanner(System.in);
+        EndGameChoice endGameChoice = EndGameChoice.of(input.nextLine());
+        while (!endOfGame){
+            if (endGameChoice.equals(EndGameChoice.ENDGAME)) {
+
+                System.out.println("Czy na pewno chcesz zakończyć grę? Wciśnij \"t\" aby potwierdzić.");
+                input = new Scanner(System.in);
+                EndGameChoice confirmation = EndGameChoice.of(input.nextLine());
+                if (confirmation.equals(EndGameChoice.TAK)) {
+                    end = true;
+                    endOfGame = true;
+                }
+            } else if (endGameChoice.equals(EndGameChoice.NEWGAME)) {
+                System.out.println("Czy na pewno chcesz zakończyć aktualną grę? Wciśnij \"t\" aby potwierdzić.");
+                input = new Scanner(System.in);
+                EndGameChoice confirmation = EndGameChoice.of(input.nextLine());
+                if (confirmation.equals(EndGameChoice.TAK)) {
+                    endOfGame = true;
+                    winner.clearScore();
+                    loser.clearScore();
+                }
+            }
         }
     }
 }

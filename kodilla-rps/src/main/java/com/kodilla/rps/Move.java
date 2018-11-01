@@ -17,6 +17,7 @@ public enum  Move {
         try {
             int value =  Integer.valueOf(input);
 
+
             return of(value);
 
         } catch (NumberFormatException e) {

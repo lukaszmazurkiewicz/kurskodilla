@@ -30,7 +30,7 @@ public class UserTestSuite {
     @Test
     public void getNameOfUserTest() {
         //Given
-        User user = new User("Tomek", 12);
+        User user = new User("Tomek");
         //When
         String result = user.getName();
         //Then
@@ -39,18 +39,19 @@ public class UserTestSuite {
     @Test
     public void getScoreOfUserTest() {
         //Given
-        User user = new User("Maciek", 11);
+        User user = new User("Maciek");
+        user.addOnePointToScore();
         //When
         int result = user.getScore();
         //Then
-        Assert.assertEquals(11, result);
+        Assert.assertEquals(1, result);
     }
     @Test
-    public void setScoreOfUserTest() {
+    public void clearScoreOfUserTest() {
         //Given
-        User user = new User("Janek", 22);
+        User user = new User("Janek");
         //When
-        user.setScore();
+        user.clearScore();
         int result = user.getScore();
         //Then
         Assert.assertEquals(0, result);
