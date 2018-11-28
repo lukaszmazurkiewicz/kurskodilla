@@ -18,4 +18,8 @@ public class User {
         return surname;
     }
 
+    @Override
+    public String toString() {
+        return name + " " + surname;
+    }
 }
