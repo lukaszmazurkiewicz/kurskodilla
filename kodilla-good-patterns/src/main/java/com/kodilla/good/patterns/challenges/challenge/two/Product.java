@@ -1,9 +1,9 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.challenge.two;
 
 public class Product {
 
-    String productName;
-    int amountOfProduct;
+    private String productName;
+    private int amountOfProduct;
 
     public Product(String productName, int amountOfProduct) {
         this.productName = productName;

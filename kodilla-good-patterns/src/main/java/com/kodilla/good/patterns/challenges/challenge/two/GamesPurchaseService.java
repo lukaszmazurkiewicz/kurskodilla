@@ -1,14 +1,12 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.challenge.two;
 
 import java.time.LocalDateTime;
 
 public class GamesPurchaseService implements PurchaseService {
     @Override
     public boolean purchase(User user, Product product, LocalDateTime purchaseDate) {
-        if (product.amountOfProduct > 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return product.getAmountOfProduct() > 0;
+
     }
 }
