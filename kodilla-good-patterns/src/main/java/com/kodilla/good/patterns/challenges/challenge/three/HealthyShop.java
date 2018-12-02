@@ -1,41 +1,38 @@
 package com.kodilla.good.patterns.challenges.challenge.three;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HealthyShop implements Provider{
 
-    private String name = "HealthyShop";
-    private List<Product> listOfProductWeOffer = new ArrayList<>();
+    private static final String SHOP_NAME = "HealthyShop";
 
-    private Product cabbage = new Product("Cabbage", 1280);
-    private Product onion = new Product("Onion", 450);
-    private Product apple = new Product("Apple", 21500);
+    private Map<String,Integer> productsWeOffer;
 
-    private boolean condition = false;
+    public HealthyShop() {
+        productsWeOffer = new HashMap<>();
+        productsWeOffer.put("Cabbage", 1280);
+        productsWeOffer.put("Onion", 450);
+        productsWeOffer.put("Apple", 21500);
+    }
 
-    public String getName() {
-        return name;
+    public static String getShopName() {
+        return SHOP_NAME;
     }
 
     @Override
     public boolean process(Order order) {
-        listOfProductWeOffer.add(cabbage);
-        listOfProductWeOffer.add(onion);
-        listOfProductWeOffer.add(apple);
+        String productToOrder = order.getNameOfProductToOrder();
+        int amount = order.getAmountOfProductToOrder();
 
-        if (listOfProductWeOffer.get(0).getNameOfProduct().equals(order.getNameOfProductToOrder()) && listOfProductWeOffer.get(0).getAmountOfProductInStock() > order.getAmountOfProductToOrder()) {
-            condition = true;
-            System.out.println("Order is accepted.");
-        } else if (listOfProductWeOffer.get(1).getNameOfProduct().equals(order.getNameOfProductToOrder()) && listOfProductWeOffer.get(1).getAmountOfProductInStock() > order.getAmountOfProductToOrder()) {
-            condition = true;
-            System.out.println("Order is accepted.");
-        } else if (listOfProductWeOffer.get(2).getNameOfProduct().equals(order.getNameOfProductToOrder()) && listOfProductWeOffer.get(2).getAmountOfProductInStock() > order.getAmountOfProductToOrder()) {
-            condition = true;
-            System.out.println("Order is accepted.");
-        } else {
-            System.out.println("We don't have in stock " + order.getAmountOfProductToOrder() + " " + order.getNameOfProductToOrder() + "s.");
+        if(not(productsWeOffer.containsKey(productToOrder))) {
+            return false;
         }
-        return condition;
+
+        return productsWeOffer.get(productToOrder) > amount;
+    }
+
+    private static boolean not(boolean value) {
+        return !value;
     }
 }

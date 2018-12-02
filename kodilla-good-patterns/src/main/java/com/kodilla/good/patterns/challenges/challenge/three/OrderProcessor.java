@@ -8,40 +8,28 @@ public class OrderProcessor {
         HealthyShop healthyShop = new HealthyShop();
         GlutenFreeShop glutenFreeShop = new GlutenFreeShop();
 
+        OrderStatus orderStatus = new OrderStatus();
+
         OrderRequest orderRequest = new OrderRequest();
         Order orderOne = orderRequest.orderOne();
         Order orderTwo = orderRequest.orderTwo();
         Order orderThree = orderRequest.orderThree();
 
-        System.out.println("Order from " + extraFoodShop.getName() + ": ");
-        extraFoodShop.process(orderOne);
-        if (extraFoodShop.isCondition()) {
-            System.out.println("Order is accepted.");
-        } else {
-            System.out.println("We don't have in stock " + orderOne.getAmountOfProductToOrder() + " " + orderOne.getNameOfProductToOrder() + "s.");
-        }
-        extraFoodShop.process(orderTwo);
-        if (extraFoodShop.isCondition()) {
-            System.out.println("Order is accepted.");
-        } else {
-            System.out.println("We don't have in stock " + orderTwo.getAmountOfProductToOrder() + " " + orderTwo.getNameOfProductToOrder() + "s.");
-        }
-        extraFoodShop.process(orderThree);
-        if (extraFoodShop.isCondition()) {
-            System.out.println("Order is accepted.");
-        } else {
-            System.out.println("We don't have in stock " + orderThree.getAmountOfProductToOrder() + " " + orderThree.getNameOfProductToOrder() + "s.");
-        }
+        System.out.println("Order from " + extraFoodShop.getShopName() + ": ");
+        orderStatus.statusOfOrder(extraFoodShop.process(orderOne), orderOne);
+        orderStatus.statusOfOrder(extraFoodShop.process(orderTwo), orderTwo);
+        orderStatus.statusOfOrder(extraFoodShop.process(orderThree), orderThree);
 
-        System.out.println("Order from " + healthyShop.getName() + ": ");
-        healthyShop.process(orderOne);
-        healthyShop.process(orderTwo);
-        healthyShop.process(orderThree);
 
-        System.out.println("Order from " + glutenFreeShop.getName() + ": ");
-        glutenFreeShop.process(orderOne);
-        glutenFreeShop.process(orderTwo);
-        glutenFreeShop.process(orderThree);
+        System.out.println("Order from " + healthyShop.getShopName() + ": ");
+        orderStatus.statusOfOrder(healthyShop.process(orderOne), orderOne);
+        orderStatus.statusOfOrder(healthyShop.process(orderTwo), orderTwo);
+        orderStatus.statusOfOrder(healthyShop.process(orderThree), orderThree);
+
+        System.out.println("Order from " + glutenFreeShop.getShopName() + ": ");
+        orderStatus.statusOfOrder(glutenFreeShop.process(orderOne), orderOne);
+        orderStatus.statusOfOrder(glutenFreeShop.process(orderTwo), orderTwo);
+        orderStatus.statusOfOrder(glutenFreeShop.process(orderThree), orderThree);
     }
 
 }

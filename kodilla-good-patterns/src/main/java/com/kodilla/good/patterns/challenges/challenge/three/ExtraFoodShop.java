@@ -1,39 +1,39 @@
 package com.kodilla.good.patterns.challenges.challenge.three;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExtraFoodShop implements Provider{
 
-    private String name = "ExtraFoodShop";
-    private List<Product> listOfProductWeOffer = new ArrayList<>();
+    private static final String SHOP_NAME = "ExtraFoodShop";
 
-    private Product carrot = new Product("Carrot", 10000);
-    private Product cabbage = new Product("Cabbage", 980);
-    private Product onion = new Product("Onion", 2550);
+    private Map<String, Integer> productsWeOffer;
 
-    private boolean condition = false;
-
-    public boolean isCondition() {
-        return condition;
+    public ExtraFoodShop() {
+        productsWeOffer = new HashMap<>();
+        productsWeOffer.put("Carrot", 10_000);
+        productsWeOffer.put("Cabbage", 980);
+        productsWeOffer.put("Onion", 2_550);
     }
 
-    public String getName() {
-        return name;
+    public static String getShopName() {
+        return SHOP_NAME;
     }
 
     @Override
     public boolean process(Order order) {
-        listOfProductWeOffer.add(carrot);
-        listOfProductWeOffer.add(cabbage);
-        listOfProductWeOffer.add(onion);
 
-        for (Product product : listOfProductWeOffer) {
-            if (product.getNameOfProduct().equals(order.getNameOfProductToOrder())) {
-                condition = product.getAmountOfProductInStock() > order.getAmountOfProductToOrder();
-            }
+        String productToOrder = order.getNameOfProductToOrder();
+        int amount = order.getAmountOfProductToOrder();
+
+        if (not(productsWeOffer.containsKey(productToOrder))) {
+            return false;
         }
 
-        return condition;
+        return productsWeOffer.get(productToOrder) > amount;
+    }
+
+    private static boolean not(boolean value) {
+        return !value;
     }
 }
