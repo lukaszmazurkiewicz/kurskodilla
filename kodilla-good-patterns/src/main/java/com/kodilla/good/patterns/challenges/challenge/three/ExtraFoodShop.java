@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ExtraFoodShop implements Provider{
 
-    private static final String SHOP_NAME = "ExtraFoodShop";
+    public static final String SHOP_NAME = "ExtraFoodShop";
 
     private Map<String, Integer> productsWeOffer;
 

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class GlutenFreeShop implements Provider{
 
-    private static final String SHOP_NAME = "GlutenFreeShop";
+    public static final String SHOP_NAME = "GlutenFreeShop";
 
     private Map<String, Integer> productsWeOffer;
 
