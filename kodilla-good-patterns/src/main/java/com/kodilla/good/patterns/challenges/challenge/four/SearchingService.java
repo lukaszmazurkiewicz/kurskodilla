@@ -10,5 +10,8 @@ public class SearchingService {
 
         System.out.println("We found following flights to Poznań Airport");
         searchingFlights.flightsToAirport("Poznań");
+
+        System.out.println("We found following flights from Warsaw to Poznań Airport");
+        searchingFlights.flightsFromAToBAirport("Warszawa", "Poznań");
     }
 }
