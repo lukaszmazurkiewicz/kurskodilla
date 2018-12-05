@@ -2,68 +2,65 @@ package com.kodilla.good.patterns.challenges.challenge.four;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SearchingFlights {
 
-    public void flightsFromAirport(String airport) {
+    private static final FlightsList FLIGHTS_LIST = new FlightsList();
 
-        FlightsList flightsList = new FlightsList();
-        List<Flight> flightsFromAirport = flightsList.getFlightsList().stream()
+    public List<Flight> flightsFromAirport(String airport) {
+
+        return FLIGHTS_LIST.getFlightsList().stream()
                 .filter(f -> f.getDepartureAirport().equals(airport))
                 .collect(Collectors.toList());
-
-        flightsFromAirport.stream()
-                .forEach(System.out::println);
     }
 
-    public void flightsToAirport(String airport) {
+    public List<Flight> flightsToAirport(String airport) {
 
-        FlightsList flightsList = new FlightsList();
-        List<Flight> flightsToAirport = flightsList.getFlightsList().stream()
+        return FLIGHTS_LIST.getFlightsList().stream()
                 .filter(f -> f.getArrivalAirport().equals(airport))
                 .collect(Collectors.toList());
-
-        flightsToAirport.stream()
-                .forEach(System.out::println);
     }
 
-    /*public void flightsFromAToBAirport(String startingAirport, String endingAirport){
-        FlightsList flightsList = new FlightsList();
-        List<Flight> flightsFromAToB = flightsList.getFlightsList().stream()
+    public Optional<Flight> flightsFromAToBAirportDirectly(String startingAirport, String endingAirport) {
+        return FLIGHTS_LIST.getFlightsList().stream()
                 .filter(f -> f.getDepartureAirport().equals(startingAirport))
                 .filter(f -> f.getArrivalAirport().equals(endingAirport))
-                .collect(Collectors.toList());
-
-        flightsFromAToB.stream()
-                .forEach(System.out::println);
-    }*/
+                .findAny();
+    }
 
     public void flightsFromAToBAirport(String startingAirport, String endingAirport){
-        FlightsList flightsList = new FlightsList();
-        List<Flight> flightsFromA = flightsList.getFlightsList().stream()
-                .filter(f -> f.getDepartureAirport().equals(startingAirport))
+
+        System.out.println("Search from "+startingAirport+" to "+endingAirport);
+        Optional<Flight> directFlight = flightsFromAToBAirportDirectly(startingAirport, endingAirport);
+
+        if(directFlight.isPresent()){
+            System.out.println("Direct flight available ");
+            System.out.println(directFlight.get());
+
+            return;
+        }
+
+        List<Flight> flightsFromA = flightsFromAirport(startingAirport);
+        List<Flight> flightsToB = flightsToAirport(endingAirport);
+
+        List<String> flightsToDepartureAirport = flightsToB.stream()
+                .map(Flight::getDepartureAirport)
                 .collect(Collectors.toList());
 
-        List<Flight> flightsToB = flightsList.getFlightsList().stream()
-                .filter(f -> f.getArrivalAirport().equals(endingAirport))
-                .collect(Collectors.toList());
+        System.out.println("\nResults: ");
+        Flight flightOne = flightsFromA.stream()
+                .filter(a -> flightsToDepartureAirport.contains(a.getArrivalAirport()))
+                .findFirst()
+                .orElseThrow(FlightNotFoundException::new);
 
-        List<Flight> flightsFromAToB = flightsFromA.stream()
-                .filter(f -> f.getDepartureAirport().contains(flightsToB.get()))
+        System.out.println("Flight one "+flightOne);
+        Flight flightTwo = flightsToB.stream()
+                .filter(a -> a.getDepartureAirport().equals(flightOne.getArrivalAirport()))
+                .findFirst()
+                .orElseThrow(FlightNotFoundException::new);
+        System.out.println("Flight two "+flightTwo);
 
-
-        //System.out.println(flightsFromA.stream().anyMatch(f -> flightsToB.contains(startingAirport)));
-
-        /*List<Flight> flightsFromAToB = flightsFromA.stream()
-                .map(f -> f.getArrivalAirport())
-                .map(flightsToB -> flightsToB.equals(f))*/
-        /*flightsFromA.stream()
-                .forEach(System.out::println);
-
-        flightsToB.stream()
-                .forEach(System.out::println);
-*/
     }
-
 }

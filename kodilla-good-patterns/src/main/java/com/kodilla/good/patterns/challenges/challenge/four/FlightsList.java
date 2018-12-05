@@ -21,6 +21,7 @@ public class FlightsList {
         flightsList.add(new Flight("Berlin", "Warszawa"));
         flightsList.add(new Flight("Wrocław", "Kraków"));
         flightsList.add(new Flight("Łódź", "Szczecin"));
+        flightsList.add(new Flight("Gdańsk", "Poznań"));
         flightsList.add(new Flight("Warszawa", "Poznań"));
     }
 
