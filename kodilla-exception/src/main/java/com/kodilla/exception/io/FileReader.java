@@ -22,4 +22,5 @@ public class FileReader {
         }
 
         System.out.println(file.getPath());
+    }
 }
