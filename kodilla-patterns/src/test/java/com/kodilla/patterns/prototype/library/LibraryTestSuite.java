@@ -35,10 +35,10 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
         //When
-        library.getBooks().add(new Book("Test Book","Test Author", LocalDate.now()));
+        library.getBooks().remove(new Book("Book nr 1", "John Smith1",LocalDate.of(1990,12,1)));
         //Then
-        Assert.assertEquals(21, library.getBooks().size());
-        Assert.assertEquals(21, clonedLibrary.getBooks().size());
+        Assert.assertEquals(19, library.getBooks().size());
+        Assert.assertEquals(19, clonedLibrary.getBooks().size());
         Assert.assertEquals(20, deepClonedLibrary.getBooks().size());
         Assert.assertEquals(library.getBooks(), clonedLibrary.getBooks());
         Assert.assertNotEquals(library.getBooks(), deepClonedLibrary.getBooks());
