@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 
 public class SudokuRow {
     public static final int ELEMENTS_IN_ROW = 9;
+
     private List<SudokuElement> row = new ArrayList<>();
 
     public SudokuRow() {
