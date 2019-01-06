@@ -98,12 +98,12 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         List<Employee> employeesWithGivenNames = employeeDao.employeesWithGivenLastName("Smith");
-        //List<Company> companiesWithGivenSubstr = companyDao.companiesWithGivenSubstring("dat");
+        List<Company> companiesWithGivenSbstr = companyDao.companiesWithGivenSubstring("Dat");
 
         //Then
 
         Assert.assertEquals(1, employeesWithGivenNames.size());
-        //Assert.assertEquals(1, companiesWithGivenSubstr.size());
+        Assert.assertEquals(1, companiesWithGivenSbstr.size());
 
 
         //CleanUp

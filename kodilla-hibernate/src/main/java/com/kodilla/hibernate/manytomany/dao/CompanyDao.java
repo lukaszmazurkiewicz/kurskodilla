@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
 
-    @Query
-    List<Company> companiesWithGivenSubstring(@Param("GIVENSUBSTR") String givenSubstring);
+    @Query(nativeQuery = true)
+    List<Company> companiesWithGivenSubstring(@Param("GIVENLETTERS") String givenLetters);
 
 }
