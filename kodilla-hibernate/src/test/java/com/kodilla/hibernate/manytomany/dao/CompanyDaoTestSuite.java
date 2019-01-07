@@ -98,7 +98,7 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         List<Employee> employeesWithGivenNames = employeeDao.employeesWithGivenLastName("Smith");
-        List<Company> companiesWithGivenSbstr = companyDao.companiesWithGivenSubstring("Dat");
+        List<Company> companiesWithGivenSbstr = companyDao.companiesWithGivenSubstr("Dat");
 
         //Then
 

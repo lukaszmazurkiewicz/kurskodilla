@@ -5,9 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 @NamedNativeQuery(
-        name = "Company.companiesWithGivenSubstring",
-        query = "SELECT * FROM COMPANIES" +
-                "WHERE STRCMP(SUBSTRING(COMPANY_NAME,'1','3'), :GIVENLETTERS) = 0",
+        name = "Company.companiesWithGivenSubstr",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME,1,3) = :GIVENLETTERS",
         resultClass = Company.class
 )
 @Entity
