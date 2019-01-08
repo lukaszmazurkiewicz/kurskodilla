@@ -7,7 +7,14 @@ public class SudokuChecks {
             if (sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getValue() == SudokuElement.EMPTY) {
                 for (SudokuElement sudokuElement : sudokuBoard.getSudokuBoard().get(numberOfRow).getRow()) {
                     try {
-                        sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getElements().remove(sudokuElement.getValue());
+                        int valueToDelete = sudokuElement.getValue();
+                        System.out.println(valueToDelete);
+                        int indexToDelete = sudokuElement.getElements().indexOf(valueToDelete);
+                        System.out.println(indexToDelete);
+                        if (valueToDelete >= 1) {
+                            sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getElements().remove(indexToDelete);
+                        }
+                        //sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getElements().remove(indexToDelete);
                     } catch (Exception e) {
                         System.out.println(e);
                     }
@@ -52,8 +59,8 @@ public class SudokuChecks {
     public static void isOk(SudokuBoard board, int numberOfRow, int numberOfColumn) {
 
         isInRow(board, numberOfRow);
-        isInColumn(board, numberOfColumn);
-        isInSquare(board, numberOfRow, numberOfColumn);
+        //isInColumn(board, numberOfColumn);
+        //isInSquare(board, numberOfRow, numberOfColumn);
 
     }
 }
