@@ -1,16 +1,19 @@
 package com.kodilla.sudoku;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class SudokuElement {
     public static final int EMPTY = -1;
 
-    List<Integer> elements = Arrays.asList(1,2,3,4,5,6,7,8,9);
+    List<Integer> elements = new ArrayList<>();
     private Integer value;
 
     public SudokuElement() {
         this.value = EMPTY;
+        IntStream.range(1,10).forEach(i -> elements.add(i));
     }
 
     public Integer getValue() {

@@ -8,15 +8,13 @@ public class SudokuGameplay {
             for (int j = 0; j < SudokuBoard.NUMBER_OF_ROWS; j++) {
                 if (board.getSudokuBoard().get(i).getRow().get(j).getValue() == SudokuElement.EMPTY) {
 
-                    /*try {
-                        sudokuChecks.isOk(board,i,j);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }*/
-                    SudokuChecks.isOk(board,i,j);
-                    //board.getSudokuBoard().get(i).getRow().get(j)
-                            //.setValue(board.getSudokuBoard().get(i).getRow().get(j).getElements().get(0));
+                    SudokuChecks.isOk(board, i, j);
                     System.out.println(board.getSudokuBoard().get(i).getRow().get(j).getElements());
+                    System.out.println(board.getSudokuBoard().get(i).getRow().get(j).getElements().get(0));
+                    /*board.getSudokuBoard().get(i).getRow().get(j)
+                            .setValue(board.getSudokuBoard().get(i).getRow().get(j).getElements().get(0));*/
+                    int valueToSet = board.getSudokuBoard().get(i).getRow().get(j).getElements().get(0);
+                    board.getSudokuBoard().get(i).getRow().get(j).setValue(valueToSet);
                 }
             }
         }
