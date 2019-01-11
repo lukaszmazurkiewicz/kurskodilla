@@ -6,13 +6,9 @@ public class SudokuChecks {
         for (int i = 0; i < SudokuBoard.NUMBER_OF_ROWS; i++) {
             if (sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getValue() == SudokuElement.EMPTY) {
                 for (SudokuElement sudokuElement : sudokuBoard.getSudokuBoard().get(numberOfRow).getRow()) {
-                    try {
 
-                        sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getElements().remove(sudokuElement.getValue());
+                    sudokuBoard.getSudokuBoard().get(numberOfRow).getRow().get(i).getElements().remove(sudokuElement.getValue());
 
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
                 }
             }
         }
@@ -60,4 +56,6 @@ public class SudokuChecks {
         isInSquare(board, numberOfRow, numberOfColumn);
 
     }
+
+
 }
