@@ -5,9 +5,19 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.employeesWithGivenLastName",
-        query = "FROM Employee WHERE STRCMP(lastname, :GIVENNAME) = 0"
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "Employee.employeesWithGivenLastName",
+                        query = "FROM Employee WHERE STRCMP(lastname, :GIVENNAME) = 0"
+                ),
+
+                @NamedQuery(
+                        name = "Employee.employeesWithGivenLetters",
+                        query = "FROM Employee WHERE lastname LIKE CONCAT('%', :GIVENLETTERS, '%')"
+                )
+        }
+
 )
 @Entity
 @Table(name = "EMPLOYEES")
@@ -46,7 +56,7 @@ public class Employee {
     }
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable (
+    @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
             inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
