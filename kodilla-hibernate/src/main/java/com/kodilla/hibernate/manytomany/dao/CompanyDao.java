@@ -13,6 +13,9 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
 
     @Query(nativeQuery = true)
-    List<Company> companiesWithGivenSubstr(@Param("GIVENLETTERS") String givenLetters);
+    List<Company> companiesWithGivenSubstr(@Param("GIVENLSUBSTR") String givenSubstr);
+
+    @Query
+    List<Company> companiesWithGivenLetters(@Param("GIVENLETTERS") String givenLetters);
 
 }

@@ -4,10 +4,15 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+
 @NamedNativeQuery(
         name = "Company.companiesWithGivenSubstr",
-        query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME,1,3) = :GIVENLETTERS",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME,1,3) = :GIVENSUBSTR",
         resultClass = Company.class
+)
+@NamedQuery(
+        name = "Company.companiesWithGivenLetters",
+        query = "FROM Company WHERE name LIKE CONCAT('%',:GIVENLETTERS,'%')"
 )
 @Entity
 @Table(name = "COMPANIES")
